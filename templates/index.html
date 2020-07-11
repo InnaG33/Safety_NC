@@ -7,47 +7,137 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Safety_NC</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/style.css">
 </head>
+<style>
+  body {
+  margin-top: 0px; 
+  padding-top: 0px;  
+  background: rgb(158, 157, 157);
+  background: url('https://upload.wikimedia.org/wikipedia/commons/b/ba/Blue_Ridge_Parkway-27527.jpg')
+  }
+#danger {
+  color: rgb(102, 9, 9);
+}
+
+.jumbotron {
+  background-color: rgb(218, 255, 247);
+}
+#pc {
+  font-size: 10px;
+}
+#fp {
+  fill: rgb(236, 106, 97);
+}
+.filters {
+    background: rgb(250, 239, 136);
+    color: rgb(7, 1, 32);
+    font-size: 12px;
+    border-color: rgb(4, 1, 19);
+    border-width: 2px;
+    border-radius: 13px;
+    box-shadow: 5px 5px 3px rgb(44, 36, 36);
+  }
+</style>
 
 <body>
-
-  <div class="container">
+    <div class="container">
     <div class="row">
       <div class="jumbotron text-center">
-        <h1 id="missions">NC Safety for Bicyclest and Pedestrians</h1>
-        <!-- <p><a class="btn btn-primary btn-lg" href="/scrape" role="button" id="newd">Scrape New Data</a></p> -->
-      </div>
-      <div class="col-md-7">
-      <h2>Bicycles</h2>
-        <h3> Bike Crash Severity Group</h3>
-        <p> {{ article1['CrashSevr'] }}</p>
-        <h3> Speed limit upper value</h3>
-        <p>{{ article2['County'] }}</p>
-        <h3>Future Plots</h3>
-        <!-- <img src="{{ article1.featured_image_url }}" alt="Sloth"> -->
-      </div>
-      <div class="col-md-5">
-        <h2>Pedestrians</h2>
-        <!-- <p>{{ article1.weather }}</p> -->
-        <br>
+        <h1 id="missions">NC Pedestrinas</h1>
+        <h1 id="danger">Danger Zone</h1>
+
+    <div class="container">
+    <h3>Cases by Counties</h3>
+    <!-- <hr class="my-4">  -->
 
 
+    <!-- <div class="col-md-2">
+      <aside class="filters">
+        <div class="panel panel-default">
+          <div class="panel-heading">Filter Bicycles Plot Data</div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <ul class="list-group" id="filters">
+                  <li class="filter list-group-item">
+                    <option value="year">Year</option>
+                        <input class="form-control" id="year" type="text" id="pc" placeholder="2018">
+                        <br>
+                    <option value="country">County</option>
+                        <input class="form-control" id="country" type="text" placeholder="Alamance">
+                        <br>
+                    <option value="month">Month</option>
+                        <input class="form-control" id="month" type="text" placeholder="August">
+                        <br>
+                    <option value="dayweek">Day of week</option>
+                        <input class="form-control" id="dayweek" type="text" placeholder="Thursday">
+                  </li>
+                </ul>
+              </div>
+              <button id="filter-btn" type="button" class="btn btn-default" id="fp">Filter Plot</button>
+            </form>
+          </div>
         </div>
+      </aside>
+    </div> -->
+
+    <div class="row">     
+        <div class="chart" id="bikes"></div>
     </div>
-    <h2>Pedestrians data</h2>
-    <hr class="my-4"> 
-
-
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<div class="container">
+    <h2>Pedestrians</h2>
+    <hr class="my-4"> 
+    <div class="col-md-2">
+     
+      <aside class="filters">
+        <div class="panel panel-default">
+          <div class="panel-heading">Filter Pedestrians Plot Data</div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <ul class="list-group" id="filters">
+                  <li class="filter list-group-item">
+                    <option value="year">Year</option>
+                       
+                        <input class="form-control" id="year" type="text" placeholder="2015">
+                        <br>
+                    <option value="country">County</option>
+                        
+                        <input class="form-control" id="country" type="text" placeholder="Alamance">
+                        <br>
+                    <option value="month">Month</option>
+                       
+                        <input class="form-control" id="month" type="text" placeholder="April">
+                        <br>
+                    <option value="dayweek">Day of week</option>
+                        
+                        <input class="form-control" id="dayweek" type="text" placeholder="Sunday">
+                  </li>
+                </ul>
+              </div>
+              <button id="filter-btn" type="button" class="btn btn-default">Filter Plot</button>
+            </form>
+          </div>
+        </div>
+      </aside>
+    </div>
+  
+
+    <div class="row">     
+        <div class="chart" id="pedes"></div>
+    </div>
+  </div> 
+
+  </div>
+  </div>
+  </div>
   <script src="https://d3js.org/d3.v5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-tip/0.7.1/d3-tip.min.js"></script>
-  <script type="text/javascript" src="assets/js/appcharts.js"></script>
-
-</body>
-
+  <script type="text/javascript" src="static/js/chartsapp5.js"></script>
+  <!-- <script type="text/javascript" src="static/js/chartsapp3.js"></script> -->
+  <!-- <script type="text/javascript" src="static/js/chartsapp4.js"></script>
+</body> -->
+  
 </html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>NC_Pedestrians</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<style>
+  body {
+  margin-top: 0px; 
+  padding-top: 0px;  
+  background: rgb(158, 157, 157);
+  background: url('https://upload.wikimedia.org/wikipedia/commons/b/ba/Blue_Ridge_Parkway-27527.jpg')
+  }
+#danger {
+  color: rgb(102, 9, 9);
+}
+
+.jumbotron {
+  background-color: rgb(218, 255, 247);
+}
+#pc {
+  font-size: 10px;
+}
+#fp {
+  fill: rgb(236, 106, 97);
+}
+.filters {
+    background: rgb(250, 239, 136);
+    color: rgb(7, 1, 32);
+    font-size: 12px;
+    border-color: rgb(4, 1, 19);
+    border-width: 2px;
+    border-radius: 13px;
+    box-shadow: 5px 5px 3px rgb(44, 36, 36);
+  }
+</style>
+
+<body>
+    <div class="container">
+    <div class="row">
+      <div class="jumbotron text-center">
+        <h1 id="missions">NC Pedestrians</h1>
+        <h1 id="danger">Danger Zone</h1>
+
+    <div class="container">
+    <h3>Cases by Counties</h3>
+
+<div class="container">
+    <h2>Pedestrians</h2>
+    <hr class="my-4"> 
+    <div class="col-md-2">
+     
+      <aside class="filters">
+        <div class="panel panel-default">
+          <div class="panel-heading">Filter Pedestrians Plot Data</div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <ul class="list-group" id="filters">
+                  <li class="filter list-group-item">
+                    <option value="year">Year</option>
+                       
+                        <input class="form-control" id="year" type="text" placeholder="2015">
+                        <br>
+                    <option value="country">County</option>
+                        
+                        <input class="form-control" id="country" type="text" placeholder="Alamance">
+                        <br>
+                    <option value="month">Month</option>
+                       
+                        <input class="form-control" id="month" type="text" placeholder="April">
+                        <br>
+                    <option value="dayweek">Day of week</option>
+                        
+                        <input class="form-control" id="dayweek" type="text" placeholder="Sunday">
+                  </li>
+                </ul>
+              </div>
+              <button id="filter-btn" type="button" class="btn btn-default">Filter Plot</button>
+            </form>
+          </div>
+        </div>
+      </aside>
+    </div>
+  
+
+    <div class="row">     
+        <div class="chart" id="pedes"></div>
+    </div>
+  </div> 
+
+  </div>
+  </div>
+  </div>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script type="text/javascript" src="static/js/chartsapp5.js"></script>
+  <!-- <script type="text/javascript" src="static/js/chartsapp3.js"></script> -->
+  <!-- <script type="text/javascript" src="static/js/chartsapp4.js"></script>
+</body> -->
+</body>
+</html>

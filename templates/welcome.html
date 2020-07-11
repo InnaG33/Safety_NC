@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>NC_Safety</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <style>
+      #lat {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background: #37cece; 
+        color: #ffffff; 
+        text-align: left;
+        font-weight: bold;
+        font-size: 36px;
+      }
+      #navbarSupportedContent{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background: white;
+      }
+      </style>
+
+  <a id="lat" href="welcome.html">NC Safety</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+          
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Plots
+          </a>
+          <div class="dropdown-menu" times-labelledby="navbarDropdown">
+            <a class="dropdown-item" target="_blank" href="/bikes_chart">Bicyclests</a>
+            <a class="dropdown-item" target="_blank" href="/pedes_chart">Pedestrians</a>
+            <!-- <a class="dropdown-item" target="_blank" href="CityClouds.html">Maps</a> -->
+            <!-- <a class="dropdown-item" target="_blank" href="CityWinds.html">Windspeed</a> -->
+          </div>
+        </li>
+        
+      <li class="nav-item">
+        <a class="nav-link" target="_blank" href="/">Maps <span class="sr-only">(current)</span></a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" target="_blank" href="Data.html">Data</a>
+      </li> -->
+          
+    </ul>
+  </div>
+  </nav>
+
+<!-- <main>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="jumbotron">
+          <section id="figure">
+            <h1 id="display-1">Summary: Latitude vs. X</h1>
+            <hr class="my-4">
+            <img id="sum-lat" src="assets/images/City_Temp_Lat.png"/>
+            <p>The purpose of this project was to analyze how weather changes as you get closer to the equater. To accomplish this analysis. we first pulled data from the OpenWeatherMapAPI to assemble a dataset on over 500 cities.</p>
+            <p>After assembling the dataset, we used Matplotlib to plot various aspects of the weather vs. latitude. Factors we looked at included: temperature, cloudiness, windspeed, and humidity. This site provides the source data and visualizations created as part of the analysis, as well as explanations and descriptions of any trends and correlations witnessed.</p>
+            <p>The data was analyzed by looking at the parameters of Northern and Southern hemisheres separetly in order to find linear relationships between the latitude and depending variables (temperature, humidity, cloudiness and winds). As demonstrated by this Temperature plot with clear maximum near the Equator, no linear correlations are expected by analyzing variables by the full range of latitudes.</p>
+            <p>The results demonstrated strong correlations of temperatures with latitudes in northern and southern hemispheres, as expected.</p>
+            <p>Interesting fact was found about the humidities dependance on the northern and southern latitudes: it is slightly increasing toward the northern pole from north; then slightly increasing toward the equator from south.</p>
+          </section>
+        </div>
+      </div>
+    <div class="col-md-5">
+      <div class="jumbotron" id="visualizations">
+        <h1 id="display-1">Visualizations</h1>
+        <hr class="my-4"> 
+        <p>Click on plots to get analysis</p>
+        <div class="container">
+          <div class="row row-cols-1">
+            <div class="col" id="display-2">
+              <a href="CityTemp.html"> <img id="vis" src="assets/images/City_Temp_Lat.png"/> </a>
+            </div>
+            <div class="col" id="display-2">
+              <a href="CityHumid.html"> <img id="vis" src="assets/images/City_Humid_Lat.png"/> </a>
+            </div>
+            <div class="col" id="display-2">
+              <a href="CityClouds.html"> <img id="vis" src="assets/images/City_Cloud_Lat.png"/> </a>
+            </div>
+            <div class="col" id="display-2">
+              <a href="CityWinds.html"> <img id="vis" src="assets/images/City_Wind_Lat.png"/> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</main> -->
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+</body>
+
+
+</html>
+

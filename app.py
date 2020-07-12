@@ -13,22 +13,46 @@ mongo_bikes = PyMongo(app, uri="mongodb://localhost:27017/NCBikes_app")
 mongo_pedes = PyMongo(app, uri="mongodb://localhost:27017/NCPedestrians_app")
 
 # Route to render index.html template using data from Mongo
+# @app.route("/")
+# def home():
+
+#     # Find one record of data from the mongo database
+#     bikes_data = mongo_bikes.db.collection.find()
+#     pedes_data = mongo_pedes.db.collection.find()
+
+#     # Return template and data
+#     return render_template("index_bikes.html", article1=bikes_data, article2=pedes_data)
+
 @app.route("/")
-def home():
+def welcome():
+    """List all available api routes."""
+    return render_template("welcome.html")
+
+@app.route("/pedes_chart")
+def pedes_chart():
 
     # Find one record of data from the mongo database
-    bikes_data = mongo_bikes.db.collection.find()
+    # bikes_data = mongo_bikes.db.collection.find()
     pedes_data = mongo_pedes.db.collection.find()
 
     # Return template and data
-    return render_template("index.html", article1=bikes_data, article2=pedes_data)
+    return render_template("index_peds.html", article2=pedes_data)
+
+@app.route("/bikes_chart")
+def bikes_chart():
+
+    # Find one record of data from the mongo database
+    bikes_data = mongo_bikes.db.collection.find()
+    # pedes_data = mongo_pedes.db.collection.find()
+
+    # Return template and data
+    return render_template("index_bikes.html", article1=bikes_data)
 
 
-# Route that will trigger the scrape function
 @app.route("/read_bikes")
 def read_bikes():
     mongo_bikes.db.collection.drop()
-    data_path = '/Users/grinn/UCBWork/Safety_NC/data/bicycles_selcols_v1.csv'
+    data_path = '/Users/grinn/UCBWork/Safety_NC/data/sevr_killed_bikes.csv'
     
     # bdata = []
     # bikedata = []
@@ -45,36 +69,19 @@ def read_bikes():
                 bikes.update( {csv_header[i] : bike_row[i]} )
                        
             mongo_bikes.db.collection.insert_one(bikes)
-#            bikedata.append(bikes)
-
-    # class JSONEncoder(json.JSONEncoder):
-    #     def default(self, o):
-    #         if isinstance(o, ObjectId):
-    #             return str(o)
-    #         return json.JSONEncoder.default(self, o)
-
-#    bikedata = json.dumps(bikedata, cls=JSONEncoder)
 
     bikes_results = mongo_bikes.db.collection.find()
-    #bdata = list(bikes_results)
+
     for result in bikes_results: 
-        geo_point = result['geo_point_2d']
-        age = result['Age']
-        crash_sevr = result['CrashSevr']
-        age_group = result['BikeAgeGrp']
-        sex = result['BikeSex']
-        city = result['City']
         county = result['County']
-        hour = result['CrashHour']
+        year = result['CrashYear']
+        age = result['Age']
+        crashour = result['CrashHour']
         day_of_week = result['Day of Week']
         month = result['CrashMonth']
-        year = result['CrashYear']
         speed_limit = result['SpeedLimit_upper_value']
-        output.update( {geo_point : (age, age_group, sex, crash_sevr, city, county, hour, day_of_week, month, year, speed_limit)} )
-    
+        output.update( {county : (year, month, day_of_week, crashour, speed_limit, age)} )
 
-        # res = json.dumps(result, cls=JSONEncoder)
-        # bdata.append(res)
     print("length of output: ", len(output))
 
     return jsonify(output)
@@ -82,7 +89,7 @@ def read_bikes():
 @app.route("/read_pedestrians")
 def read_pedestrians():
     mongo_pedes.db.collection.drop()
-    data_path = '/Users/grinn/UCBWork/Safety_NC/data/pedestrian_selcols_v1.csv'
+    data_path = '/Users/grinn/UCBWork/Safety_NC/data/sevr_killed_pedes.csv'
     
     output = {}
 
@@ -101,19 +108,14 @@ def read_pedestrians():
     pedes_results = mongo_pedes.db.collection.find()
     
     for result in pedes_results: 
-        geo_point = result['geo_point_2d']
         age = result['Age']
-        crash_sevr = result['CrashSevr']
-        age_group = result['PedAgeGrp']
-        sex = result['PedSex']
-        city = result['City']
         county = result['County']
-        hour = result['CrashHour']
+        crashour = result['CrashHour']
         day_of_week = result['Day of Week']
         month = result['CrashMonth']
         year = result['CrashYear']
         speed_limit = result['SpeedLimit_upper_value']
-        output.update( {geo_point : (age, age_group, sex, crash_sevr, city, county, hour, day_of_week, month, year, speed_limit)} )
+        output.update( {county : (year, month, day_of_week, crashour, speed_limit, age)} )
         
     print("length of output: ", len(output))
 

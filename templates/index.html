@@ -5,140 +5,139 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Mars Facts</title>
+  <title>Safety_NC</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="static/css/style.css">
+  <link rel="stylesheet" href="static/css/style.css">
 </head>
-
-<body>
 <style>
   body {
   margin-top: 0px; 
   padding-top: 0px;  
   background: rgb(158, 157, 157);
-  background: url('https://www.nasa.gov/sites/default/files/styles/full_width_feature/public/mars_odyssey_2.jpg')
+  background: url('https://upload.wikimedia.org/wikipedia/commons/b/ba/Blue_Ridge_Parkway-27527.jpg')
   }
-  .jumbotron {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 2px;
-  background: rgb(128, 3, 3);
-  color: rgb(233, 235, 122);
-  }
-  .container {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 20px;
-    background: rgb(249, 252, 215);
-  }
-  p {
-    color:rgb(3, 9, 34);
-    font-size: 16px;
-  }
-  #newd {
+#danger {
+  color: rgb(102, 9, 9);
+}
+
+.jumbotron {
+  background-color: rgb(218, 255, 247);
+}
+#pc {
+  font-size: 10px;
+}
+#fp {
+  fill: rgb(236, 106, 97);
+}
+.filters {
     background: rgb(250, 239, 136);
     color: rgb(7, 1, 32);
-    font-size: 22px;
+    font-size: 12px;
     border-color: rgb(4, 1, 19);
     border-width: 2px;
-    border-radius: 20px;
-    box-shadow: 7px 7px 5px rgb(44, 36, 36);
+    border-radius: 13px;
+    box-shadow: 5px 5px 3px rgb(44, 36, 36);
   }
-  #missions {
-    font-size: 50px;
-  }
-  #hemis {
-  margin-left: 10px;
-  margin-right: 10px;
-  height: 400px;
-  width: 400px;
-  }
-  #display-1 {
-    color: rgb(7, 1, 32);
-    font-size: 16px;
-    font-weight: bold;
-  }
-  h2 {
-    font-size: 24px;
-    color: rgb(25, 8, 99);
-  }
-  h3 {
-    font-size: 20px;
-    color: rgb(165, 20, 40);
- 
-  }
-  th{
-  text-align: left;
-  font-weight: bold;
-  padding-left: 5px;
-  padding-right: 5px;
-  color: rgb(92, 12, 21);
-  border: 1px solid rgb(5, 5, 5);
-  font-size: 18px;
-}
-td{
-  padding-left: 20px;
-  padding-right: 10px;
-  text-align: left;
-  color: rgb(0, 0, 0);
-  font-size: 18px;
-} 
-table, td {
-  border: 1px solid rgb(111, 113, 114);
-}
-</style> 
-  <div class="container">
+</style>
+
+<body>
+    <div class="container">
     <div class="row">
       <div class="jumbotron text-center">
-        <h1 id="missions">Missions to Mars</h1>
-        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button" id="newd">Scrape New Data</a></p>
-      </div>
-      <div class="col-md-7">
-      <h2>Latest Mars News</h2>
-        <h3> Article</h3>
-        <p> {{ article.titles }}</p>
-        <h3> Description</h3>
-        <p>{{ article.paragraphs }}</p>
-        <h3>Featured Mars Image</h3>
-        <img src="{{ article.featured_image_url }}" alt="Sloth">
-      </div>
-      <div class="col-md-5">
-        <h2>Current Weather on Mars</h2>
-        <p>{{ article.weather }}</p>
-        <br>
-        <table border="1" class="dataframe" id="data">
-          <thead>
-            <tr style="text-align: right;">
-              <th></th>
-              <th>Value</th>
-            </tr>
-            <tr>
-              <th>Parameter</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for fact in article.mars_facts %}
-            <tr>
-              <th>{{ fact }}</th>
-              <td>{{ article.mars_facts[fact] }}</td>
-            </tr>
-            {% endfor %}
-          </tbody>
-        </table>
+        <h1 id="missions">NC Pedestrinas</h1>
+        <h1 id="danger">Danger Zone</h1>
+
+    <div class="container">
+    <h3>Cases by Counties</h3>
+    <!-- <hr class="my-4">  -->
+
+
+    <!-- <div class="col-md-2">
+      <aside class="filters">
+        <div class="panel panel-default">
+          <div class="panel-heading">Filter Bicycles Plot Data</div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <ul class="list-group" id="filters">
+                  <li class="filter list-group-item">
+                    <option value="year">Year</option>
+                        <input class="form-control" id="year" type="text" id="pc" placeholder="2018">
+                        <br>
+                    <option value="country">County</option>
+                        <input class="form-control" id="country" type="text" placeholder="Alamance">
+                        <br>
+                    <option value="month">Month</option>
+                        <input class="form-control" id="month" type="text" placeholder="August">
+                        <br>
+                    <option value="dayweek">Day of week</option>
+                        <input class="form-control" id="dayweek" type="text" placeholder="Thursday">
+                  </li>
+                </ul>
+              </div>
+              <button id="filter-btn" type="button" class="btn btn-default" id="fp">Filter Plot</button>
+            </form>
+          </div>
         </div>
-    </div>
-    <h2>Mars Hemispheres Images</h2>
-    <hr class="my-4"> 
-    <div class="row">
-      {% for image in article.hemisph_images %}
-      <div class="col-md-5">
-        <img id="hemis" src="{{ article.hemisph_images[image] }}" alt="Sloth"/>
-        <p id="display-1">{{ image }}</p>
-      </div>
-      {% endfor %}
+      </aside>
+    </div> -->
+
+    <div class="row">     
+        <div class="chart" id="bikes"></div>
     </div>
   </div>
-</body>
 
+<div class="container">
+    <h2>Pedestrians</h2>
+    <hr class="my-4"> 
+    <div class="col-md-2">
+     
+      <aside class="filters">
+        <div class="panel panel-default">
+          <div class="panel-heading">Filter Pedestrians Plot Data</div>
+          <div class="panel-body">
+            <form>
+              <div class="form-group">
+                <ul class="list-group" id="filters">
+                  <li class="filter list-group-item">
+                    <option value="year">Year</option>
+                       
+                        <input class="form-control" id="year" type="text" placeholder="2015">
+                        <br>
+                    <option value="country">County</option>
+                        
+                        <input class="form-control" id="country" type="text" placeholder="Alamance">
+                        <br>
+                    <option value="month">Month</option>
+                       
+                        <input class="form-control" id="month" type="text" placeholder="April">
+                        <br>
+                    <option value="dayweek">Day of week</option>
+                        
+                        <input class="form-control" id="dayweek" type="text" placeholder="Sunday">
+                  </li>
+                </ul>
+              </div>
+              <button id="filter-btn" type="button" class="btn btn-default">Filter Plot</button>
+            </form>
+          </div>
+        </div>
+      </aside>
+    </div>
+  
+
+    <div class="row">     
+        <div class="chart" id="pedes"></div>
+    </div>
+  </div> 
+
+  </div>
+  </div>
+  </div>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script type="text/javascript" src="static/js/chartsapp5.js"></script>
+  <!-- <script type="text/javascript" src="static/js/chartsapp3.js"></script> -->
+  <!-- <script type="text/javascript" src="static/js/chartsapp4.js"></script>
+</body> -->
+  
 </html>

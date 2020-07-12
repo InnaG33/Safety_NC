@@ -13,26 +13,21 @@ mongo_bikes = PyMongo(app, uri="mongodb://localhost:27017/NCBikes_app")
 mongo_pedes = PyMongo(app, uri="mongodb://localhost:27017/NCPedestrians_app")
 
 # Route to render index.html template using data from Mongo
-# @app.route("/")
-# def home():
-
-#     # Find one record of data from the mongo database
-#     bikes_data = mongo_bikes.db.collection.find()
-#     pedes_data = mongo_pedes.db.collection.find()
-
-#     # Return template and data
-#     return render_template("index_bikes.html", article1=bikes_data, article2=pedes_data)
 
 @app.route("/")
 def welcome():
     """List all available api routes."""
     return render_template("welcome.html")
 
+@app.route("/maps")
+def maps():
+    """List all available api routes."""
+    return render_template("index-hope.html")
+
 @app.route("/pedes_chart")
 def pedes_chart():
 
     # Find one record of data from the mongo database
-    # bikes_data = mongo_bikes.db.collection.find()
     pedes_data = mongo_pedes.db.collection.find()
 
     # Return template and data
@@ -43,7 +38,6 @@ def bikes_chart():
 
     # Find one record of data from the mongo database
     bikes_data = mongo_bikes.db.collection.find()
-    # pedes_data = mongo_pedes.db.collection.find()
 
     # Return template and data
     return render_template("index_bikes.html", article1=bikes_data)
@@ -54,8 +48,6 @@ def read_bikes():
     mongo_bikes.db.collection.drop()
     data_path = '/Users/grinn/UCBWork/Safety_NC/data/sevr_killed_bikes.csv'
     
-    # bdata = []
-    # bikedata = []
     output = {}
 
     with open(data_path) as csvfile:

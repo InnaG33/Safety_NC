@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Safety NC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container" >
+        <div class="nav-wrapper">
+            <div class="left-side">
+                <div class="nav-link-wrapper">
+                    <a href="index.html">Safety NC</a>
+                </div>
+            </div>    
+            <li class="right-side">
+                <div class="nav-link-wrapper">
+                    <a href="about.html">About</a>
+                </div>
+                <div class="nav-link-wrapper">
+                    <a href="data.html">Data</a>
+                </div>
+                <div class="nav-link-wrapper">                       
+                    <a href="bicycle.html">Bicycle</a>
+                </div>
+                <div class="nav-link-wrapper">
+                    <a href="pedestrians.html">Pedestrian</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-wrapper"> 
+            <div class="portfolio-items-wrapper">
+
+                <div class="portfolio-item-wrapper">
+                    <div class="portfolio-img-background" style="background-image:url(images/drone.jpeg)"></div>
+
+                    <div class="img-txt-wrapper">
+
+                        <div class="logo-wrapper">
+                            <img src="images/logos/d3-logo.png">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="portfolio-item-wrapper">
+                    <div class="portfolio-img-background" style="background-image:url(images/brick_wall.jpeg)"></div>
+
+                    <div class="img-txt-wrapper">
+
+                        <div class="logo-wrapper">
+                            <img src="images/logos/Python.png">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="portfolio-item-wrapper">
+                    <div class="portfolio-img-background" style="background-image:url(images/cabin.jpg)"></div>
+
+                    <div class="img-txt-wrapper">
+
+                        <div class="logo-wrapper">
+                            <img src="images/logos/leaflet.png">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="portfolio-item-wrapper">
+                    <div class="portfolio-img-background" style="background-image:url(images/NC_welcome.jpg)"></div>
+
+                    <div class="img-txt-wrapper">
+
+                        <div class="logo-wrapper">
+                            <img src="images/logos/HTML.png">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="portfolio-item-wrapper">
+                    <div class="portfolio-img-background" style="background-image:url(images/raleigh.jpg)"></div>
+
+                    <div class="img-txt-wrapper">
+
+                        <div class="logo-wrapper">
+                            <img src="images/logos/mongoDB.png">
+                        </div>
+                    </div>
+
+                </div>
+        
+                <div class="portfolio-item-wrapper">
+                    <div class="portfolio-img-background" style="background-image:url(images/roadway.jpeg)"></div>
+
+                    <div class="img-txt-wrapper">
+
+                        <div class="logo-wrapper">
+                            <img src="images/logos/SQL.png">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<script>
+    const portfolioItems = document.querySelectorAll('.portfolio-item-wrapper')
+
+    portfolioItems.forEach(portfolioItem => {
+        portfolioItem.addEventListener('mouseover', () => {
+            portfolioItem.childNodes[1].classList.add('img-darken');
+        })
+    })
+
+    portfolioItems.forEach(portfolioItem => {
+        portfolioItem.addEventListener('mouseout', () => {
+            portfolioItem.childNodes[1].classList.remove('img-darken');
+        })
+    })
+</script>
+
+
+<body>
+
+    <div class="container2" >
+        <div class="nav-wrapper2">
+            <div class="center2">
+                <div class="nav-link-wrapper2">
+                   <a href="index.html">Map</a>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    <div class="content-wrapper"> 
+        <div class="portfolio-items-wrapper2">
+    
+            <div class="portfolio-item-wrapper2">
+                <div class="portfolio-img-background2" style="background-image:url(images/NC-map.jpeg)"></div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
